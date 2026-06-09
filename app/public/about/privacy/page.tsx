@@ -1,4 +1,4 @@
-import { ContentPage } from "../../../components/ContentPage";
+import { ContentPage } from "@/components/ContentPage";
 
 export default function PrivacyPage() {
   return (

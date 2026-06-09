@@ -1,6 +1,6 @@
 'use client';
 import { useState } from "react";
-import { ContentPage } from "../../components/ContentPage";
+import { ContentPage } from "@/components/ContentPage";
 
 interface FAQItem {
   question: string;
