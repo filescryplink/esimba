@@ -2,7 +2,6 @@ import {
   sqliteTable,
   text,
   integer,
-  primaryKey,
 } from "drizzle-orm/sqlite-core";
 import { relations } from "drizzle-orm";
 
@@ -15,8 +14,7 @@ export const users = sqliteTable("users", {
   role: text("role", { enum: ["super_admin", "partner_admin", "pending"] })
     .notNull()
     .default("pending"),
-  // @ts-ignore
-  partnerId: text("partner_id").references(() => partners.id),
+  partnerId: text("partner_id"),
   createdAt: integer("created_at", { mode: "timestamp" })
     .notNull()
     .defaultNow(),
@@ -31,8 +29,7 @@ export const partners = sqliteTable("partners", {
   status: text("status", { enum: ["active", "inactive", "pending"] })
     .notNull()
     .default("pending"),
-  // @ts-ignore
-  ownerUserId: text("owner_user_id").references(() => users.id),
+  ownerUserId: text("owner_user_id"),
   brandName: text("brand_name"),
   brandColor: text("brand_color"),
   logoUrl: text("logo_url"),
@@ -61,7 +58,7 @@ export const partnerLeads = sqliteTable("partner_leads", {
 export const orders = sqliteTable("orders", {
   id: text("id").primaryKey(),
   customerEmail: text("customer_email").notNull(),
-  partnerId: text("partner_id").references(() => partners.id),
+  partnerId: text("partner_id"),
   planCode: text("plan_code").notNull(),
   paymentStatus: text("payment_status", {
     enum: ["pending", "paid", "failed", "refunded"],
