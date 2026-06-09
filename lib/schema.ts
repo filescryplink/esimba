@@ -15,6 +15,7 @@ export const users = sqliteTable("users", {
   role: text("role", { enum: ["super_admin", "partner_admin", "pending"] })
     .notNull()
     .default("pending"),
+  // @ts-ignore
   partnerId: text("partner_id").references(() => partners.id),
   createdAt: integer("created_at", { mode: "timestamp" })
     .notNull()
@@ -30,6 +31,7 @@ export const partners = sqliteTable("partners", {
   status: text("status", { enum: ["active", "inactive", "pending"] })
     .notNull()
     .default("pending"),
+  // @ts-ignore
   ownerUserId: text("owner_user_id").references(() => users.id),
   brandName: text("brand_name"),
   brandColor: text("brand_color"),
