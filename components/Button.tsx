@@ -8,6 +8,7 @@ interface ButtonProps {
   size?: "sm" | "md" | "lg";
   className?: string;
   href?: string;
+  type?: "button" | "submit" | "reset";
   onClick?: () => void;
 }
 
@@ -17,6 +18,7 @@ export const Button = ({
   size = "md",
   className = "",
   href,
+  type = "button",
   onClick,
 }: ButtonProps) => {
   const baseStyles = "inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-full transform hover:-translate-y-1 active:translate-y-0";
@@ -42,7 +44,7 @@ export const Button = ({
   }
 
   return (
-    <button className={classes} onClick={onClick}>
+    <button type={type} className={classes} onClick={onClick}>
       {children}
     </button>
   );
