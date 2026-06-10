@@ -60,6 +60,14 @@ const handler = NextAuth({
         return session;
       }
     },
+    async redirect({ url, baseUrl }) {
+      // Check if it's the callback URL or relative URL
+      if (url.startsWith("/")) {
+        return baseUrl + url;
+      }
+      // Default to appropriate route based on user email (we'll check session in middleware or client)
+      return baseUrl;
+    },
   },
   pages: {
     signIn: "/login",
