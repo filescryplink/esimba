@@ -10,7 +10,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (status === 'authenticated') {
-      if (session.user?.email === process.env.NEXT_PUBLIC_SUPER_ADMIN_EMAIL || session.user?.role === 'super_admin') {
+      if (session.user?.role === 'super_admin') {
         router.replace('/admin');
       } else if (session.user?.role === 'partner_admin') {
         router.replace('/partner');

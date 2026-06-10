@@ -1,4 +1,5 @@
 import NextAuth from "next-auth";
+import { JWT } from "next-auth/jwt";
 
 declare module "next-auth" {
   interface Session {
@@ -19,5 +20,11 @@ declare module "next-auth" {
     image?: string | null;
     role: "super_admin" | "partner_admin" | "pending";
     partnerId?: string | null;
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    role?: "super_admin" | "partner_admin" | "pending";
   }
 }

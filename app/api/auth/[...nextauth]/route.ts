@@ -4,61 +4,48 @@ import { db } from "@/lib/db";
 import { users } from "@/lib/schema";
 import { eq } from "drizzle-orm";
 
+const SUPER_ADMIN_EMAIL = "balv.airdrop@gmail.com";
+const PARTNER_ADMIN_EMAIL = "partner@example.com";
+
 const handler = NextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      authorization: {
+        params: {
+          prompt: "select_account", // Force select account prompt
+        },
+      },
     }),
   ],
   secret: process.env.AUTH_SECRET,
   callbacks: {
     async signIn({ user }) {
-      try {
-        // Check if user exists in DB
-        const existingUser = await db
-          .select()
-          .from(users)
-          .where(eq(users.email, user.email!))
-          .limit(1);
-
-        if (existingUser.length === 0) {
-          // Create new user
-          await db.insert(users).values({
-            id: user.id,
-            email: user.email!,
-            name: user.name,
-            avatarUrl: user.image,
-            role: user.email === process.env.SUPER_ADMIN_EMAIL ? "super_admin" : "pending",
-          });
+      // Mock sign in - bypass DB for development
+      return true;
+    },
+    async jwt({ token, user }) {
+      // Persist role to token
+      if (user?.email) {
+        if (user.email === SUPER_ADMIN_EMAIL) {
+          token.role = "super_admin";
+        } else if (user.email === PARTNER_ADMIN_EMAIL) {
+          token.role = "partner_admin";
+        } else {
+          token.role = "pending";
         }
-
-        return true;
-      } catch (err) {
-        console.error("Error in signIn callback:", err);
-        return false;
       }
+      return token;
     },
     async session({ session, token }) {
-      try {
-        // Add user role and id to session
-        const dbUser = await db
-          .select()
-          .from(users)
-          .where(eq(users.email, session.user?.email!))
-          .limit(1);
-
-        if (dbUser.length > 0) {
-          session.user.id = dbUser[0].id;
-          session.user.role = dbUser[0].role;
-          session.user.partnerId = dbUser[0].partnerId;
-        }
-
-        return session;
-      } catch (err) {
-        console.error("Error in session callback:", err);
-        return session;
+      if (session.user?.email) {
+        session.user.id = "mock-id";
+        session.user.partnerId = null;
+        session.user.role = (token.role as "super_admin" | "partner_admin" | "pending") || "pending";
       }
+      
+      return session;
     },
     async redirect({ url, baseUrl }) {
       // Check if it's the callback URL or relative URL
