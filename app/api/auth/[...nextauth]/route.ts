@@ -1,5 +1,8 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import { db } from "@/lib/db";
+import { users } from "@/lib/schema";
+import { eq } from "drizzle-orm";
 
 const handler = NextAuth({
   providers: [
@@ -9,6 +12,55 @@ const handler = NextAuth({
     }),
   ],
   secret: process.env.AUTH_SECRET,
+  callbacks: {
+    async signIn({ user }) {
+      try {
+        // Check if user exists in DB
+        const existingUser = await db
+          .select()
+          .from(users)
+          .where(eq(users.email, user.email!))
+          .limit(1);
+
+        if (existingUser.length === 0) {
+          // Create new user
+          await db.insert(users).values({
+            id: user.id,
+            email: user.email!,
+            name: user.name,
+            avatarUrl: user.image,
+            role: user.email === process.env.SUPER_ADMIN_EMAIL ? "super_admin" : "pending",
+          });
+        }
+
+        return true;
+      } catch (err) {
+        console.error("Error in signIn callback:", err);
+        return false;
+      }
+    },
+    async session({ session, token }) {
+      try {
+        // Add user role and id to session
+        const dbUser = await db
+          .select()
+          .from(users)
+          .where(eq(users.email, session.user?.email!))
+          .limit(1);
+
+        if (dbUser.length > 0) {
+          session.user.id = dbUser[0].id;
+          session.user.role = dbUser[0].role;
+          session.user.partnerId = dbUser[0].partnerId;
+        }
+
+        return session;
+      } catch (err) {
+        console.error("Error in session callback:", err);
+        return session;
+      }
+    },
+  },
   pages: {
     signIn: "/login",
   },
