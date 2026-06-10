@@ -74,19 +74,66 @@
       "tagline": "Connect to the world, as simple as a touch."
     },
     "about": {
-      "title": "About us",
-      "description": "eSIMba is a trusted international eSIM provider, helping you connect to the internet in over 185 countries quickly and conveniently."
+      "title": "About eSIMba",
+      "description": "eSIMba is a leading online platform providing international eSIMs, helping you connect to the internet anytime, anywhere without worrying about physical SIMs or high roaming fees.",
+      "missionTitle": "Our mission",
+      "missionDesc": "We believe that connecting to the world shouldn't be complicated or expensive. With eSIMba, you can easily buy and activate eSIM in just a few minutes, before or right after arriving at your destination.",
+      "benefitsTitle": "eSIM advantages",
+      "benefits": [
+        "No physical SIM needed, reducing the risk of losing/changing SIM",
+        "Instant activation after payment",
+        "Competitive prices, much lower than traditional roaming",
+        "185+ countries and regions supported"
+      ]
     },
     "privacy": {
-      "title": "Privacy policy"
+      "title": "Privacy policy",
+      "description": "eSIMba is committed to protecting your privacy and personal data. This privacy policy explains how we collect, use, and protect your information when you use our services.",
+      "infoCollectedTitle": "Information we collect",
+      "infoCollected": [
+        "Account information: name, email, avatar",
+        "Order information: purchase history, order details",
+        "Device information: Device type, operating system (used to optimize service)"
+      ]
     },
     "terms": {
-      "title": "Terms of service"
+      "title": "Terms of service",
+      "description": "Please read these terms of service carefully before using eSIMba's services. By accessing and using the website, you agree to comply with these terms.",
+      "usageTitle": "Using the service",
+      "usageDesc": "eSIMba's eSIM service is provided for personal and non-commercial use. You are not allowed to copy, distribute, or modify any content on the website without our written consent."
     },
     "support": {
       "faqTitle": "Frequently asked questions",
-      "howToUseTitle": "How to use",
-      "contactTitle": "Contact"
+      "faqs": [
+        { "q": "What is eSIM?", "a": "eSIM is an embedded electronic SIM on your device, replacing traditional physical SIM cards. You can activate eSIM over the network without inserting a card." },
+        { "q": "Does my device support eSIM?", "a": "Most new devices (iPhone 11 and above, Samsung S20 and above, Google Pixel 4 and above) support eSIM. Please check your device's specifications to confirm." },
+        { "q": "How long after payment do I receive eSIM?", "a": "You will receive a QR code and eSIM activation instructions immediately via email after successful payment." },
+        { "q": "Can I return eSIM?", "a": "eSIM cannot be returned after activation. Please check carefully before purchasing. If you have any issues, please contact our support team." }
+      ],
+      "howToUseTitle": "How to use eSIM",
+      "howToUseSteps": [
+        { "title": "1. Check eSIM support", "desc": "Before purchasing, make sure your device supports eSIM and is network unlocked." },
+        { "title": "2. Purchase and receive eSIM", "desc": "Choose a suitable eSIM plan, pay, and receive a QR code via email." },
+        { "title": "3. Activate eSIM", "desc": "Scan the QR code on your device to install eSIM and activate the data plan." }
+      ],
+      "contactTitle": "Contact support",
+      "contactDesc": "If you have any questions, please contact us via the channels below.",
+      "emailSupport": "Support email",
+      "supportHours": "Support hours",
+      "supportHoursValue": "Monday - Sunday: 24/7",
+      "sendEmail": "Send email now"
+    },
+    "esimPage": {
+      "title": "International eSIM Plans",
+      "subtitle": "Choose an eSIM plan that fits your destination and travel time",
+      "plans": [
+        { "name": "USA - 5GB", "data": "5GB", "duration": "30 Days", "price": 120000 },
+        { "name": "Japan - 3GB", "data": "3GB", "duration": "14 Days", "price": 210000, "featured": true },
+        { "name": "Europe - 10GB", "data": "10GB", "duration": "30 Days", "price": 350000 },
+        { "name": "Singapore - 2GB", "data": "2GB", "duration": "7 Days", "price": 95000 },
+        { "name": "Thailand - 4GB", "data": "4GB", "duration": "15 Days", "price": 130000 },
+        { "name": "Korea - 6GB", "data": "6GB", "duration": "20 Days", "price": 180000 }
+      ]
     },
     "dashboard": {
       "login": "Login",

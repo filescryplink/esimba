@@ -74,19 +74,66 @@
       "tagline": "Kết nối thế giới, đơn giản như chạm ngón tay."
     },
     "about": {
-      "title": "Về chúng tôi",
-      "description": "eSIMba là nền tảng cung cấp eSIM quốc tế uy tín, giúp bạn kết nối internet ở hơn 185 quốc gia một cách nhanh chóng và tiện lợi."
+      "title": "Về eSIMba",
+      "description": "eSIMba là nền tảng trực tuyến hàng đầu cung cấp eSIM quốc tế, giúp bạn kết nối internet mọi lúc mọi nơi mà không cần lo lắng về SIM vật lý hay phí roaming cao.",
+      "missionTitle": "Sứ mệnh của chúng tôi",
+      "missionDesc": "Chúng tôi tin rằng việc kết nối với thế giới không nên phức tạp và đắt đỏ. Với eSIMba, bạn có thể dễ dàng mua và kích hoạt eSIM chỉ trong vài phút, trước hoặc ngay sau khi đến điểm đến.",
+      "benefitsTitle": "Lợi thế của eSIM",
+      "benefits": [
+        "Không cần SIM vật lý, giảm rủi ro mất/thay đổi SIM",
+        "Kích hoạt tức thì sau khi thanh toán",
+        "Giá cạnh tranh, thấp hơn nhiều so với roaming truyền thống",
+        "185+ quốc gia và khu vực được hỗ trợ"
+      ]
     },
     "privacy": {
-      "title": "Chính sách bảo mật"
+      "title": "Chính sách bảo mật",
+      "description": "eSIMba cam kết bảo vệ quyền riêng tư và dữ liệu cá nhân của bạn. Chính sách bảo mật này giải thích cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn khi bạn sử dụng dịch vụ của chúng tôi.",
+      "infoCollectedTitle": "Thông tin chúng tôi thu thập",
+      "infoCollected": [
+        "Thông tin tài khoản: tên, email, ảnh đại diện",
+        "Thông tin đơn hàng: lịch sử mua hàng, chi tiết đơn hàng",
+        "Thông tin thiết bị: Loại thiết bị, hệ điều hành (dùng để tối ưu hóa dịch vụ)"
+      ]
     },
     "terms": {
-      "title": "Điều khoản sử dụng"
+      "title": "Điều khoản sử dụng",
+      "description": "Vui lòng đọc kỹ các điều khoản sử dụng này trước khi sử dụng dịch vụ của eSIMba. Bằng việc truy cập và sử dụng website, bạn đồng ý tuân thủ các điều khoản này.",
+      "usageTitle": "Sử dụng dịch vụ",
+      "usageDesc": "Dịch vụ eSIM của eSIMba được cung cấp cho mục đích cá nhân và không thương mại. Bạn không được phép sao chép, phân phối hay sửa đổi bất kỳ nội dung nào trên website mà không có sự đồng ý bằng văn bản của chúng tôi."
     },
     "support": {
       "faqTitle": "Câu hỏi thường gặp",
-      "howToUseTitle": "Cách sử dụng",
-      "contactTitle": "Liên hệ"
+      "faqs": [
+        { "q": "eSIM là gì?", "a": "eSIM là SIM điện tử được nhúng sẵn trên thiết bị, thay thế cho SIM vật lý truyền thống. Bạn có thể kích hoạt eSIM qua mạng mà không cần lắp thẻ." },
+        { "q": "Thiết bị của tôi có hỗ trợ eSIM không?", "a": "Hầu hết các thiết bị mới (iPhone 11 trở lên, Samsung S20 trở lên, Google Pixel 4 trở lên) đều hỗ trợ eSIM. Vui lòng kiểm tra thông số kỹ thuật của thiết bị để xác nhận." },
+        { "q": "Tôi nhận được eSIM sau khi thanh toán trong bao lâu?", "a": "Bạn sẽ nhận được QR code và hướng dẫn kích hoạt eSIM ngay lập tức qua email sau khi thanh toán thành công." },
+        { "q": "Tôi có thể hoàn trả eSIM không?", "a": "eSIM không thể hoàn trả sau khi đã kích hoạt. Vui lòng kiểm tra kỹ trước khi mua. Nếu có vấn đề, hãy liên hệ bộ phận hỗ trợ của chúng tôi." }
+      ],
+      "howToUseTitle": "Hướng dẫn sử dụng eSIM",
+      "howToUseSteps": [
+        { "title": "1. Kiểm tra hỗ trợ eSIM", "desc": "Trước khi mua, hãy đảm bảo thiết bị của bạn hỗ trợ eSIM và đã mở khóa mạng." },
+        { "title": "2. Mua và nhận eSIM", "desc": "Chọn gói eSIM phù hợp, thanh toán và nhận QR code qua email." },
+        { "title": "3. Kích hoạt eSIM", "desc": "Quét QR code trên thiết bị của bạn để cài đặt eSIM và kích hoạt gói dữ liệu." }
+      ],
+      "contactTitle": "Liên hệ hỗ trợ",
+      "contactDesc": "Nếu bạn có bất kỳ câu hỏi nào, hãy liên hệ với chúng tôi qua các kênh dưới đây.",
+      "emailSupport": "Email hỗ trợ",
+      "supportHours": "Thời gian hỗ trợ",
+      "supportHoursValue": "Thứ 2 - Chủ Nhật: 24/7",
+      "sendEmail": "Gửi email ngay"
+    },
+    "esimPage": {
+      "title": "Gói eSIM Quốc tế",
+      "subtitle": "Chọn gói eSIM phù hợp với điểm đến và thời gian đi của bạn",
+      "plans": [
+        { "name": "Mỹ - 5GB", "data": "5GB", "duration": "30 Ngày", "price": 120000 },
+        { "name": "Nhật Bản - 3GB", "data": "3GB", "duration": "14 Ngày", "price": 210000, "featured": true },
+        { "name": "Châu Âu - 10GB", "data": "10GB", "duration": "30 Ngày", "price": 350000 },
+        { "name": "Singapore - 2GB", "data": "2GB", "duration": "7 Ngày", "price": 95000 },
+        { "name": "Thái Lan - 4GB", "data": "4GB", "duration": "15 Ngày", "price": 130000 },
+        { "name": "Hàn Quốc - 6GB", "data": "6GB", "duration": "20 Ngày", "price": 180000 }
+      ]
     },
     "dashboard": {
       "login": "Đăng nhập",
