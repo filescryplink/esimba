@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "../globals.css";
 import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,10 +15,8 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
-      </body>
-    </html>
+    <div className={inter.className}>
+      <Providers>{children}</Providers>
+    </div>
   );
 }
