@@ -58,7 +58,7 @@ export const Navbar = () => {
                 <Link href="/about/terms" className="block px-5 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors">Terms</Link>
               </div>
             </div>
-            <Link href="https://app.esimba.online" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">{t('login')}</Link>
+            <Link href="/dashboard/login" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">{t('login')}</Link>
             
             {/* Language Switcher */}
             <div className="flex items-center gap-2 border border-gray-200 rounded-full p-1">
@@ -131,7 +131,7 @@ export const Navbar = () => {
               </div>
             </div>
             <div className="border-t border-gray-100 pt-4 flex flex-col gap-3">
-              <Link href="https://app.esimba.online" className="w-full text-center px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-full transition-colors">{t('login')}</Link>
+              <Link href="/dashboard/login" className="w-full text-center px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-full transition-colors">{t('login')}</Link>
             </div>
           </div>
         </div>
