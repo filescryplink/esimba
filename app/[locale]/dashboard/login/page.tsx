@@ -1,12 +1,14 @@
 'use client';
 
 import { useSession, signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function LoginPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const params = useParams();
+  const locale = params.locale as string;
   const [hasRedirected, setHasRedirected] = useState(false);
 
   useEffect(() => {
@@ -15,14 +17,14 @@ export default function LoginPage() {
     if (status === 'authenticated') {
       setHasRedirected(true);
       if (session?.user?.role === 'super_admin') {
-        router.replace('/admin');
+        router.replace(`/${locale}/dashboard/admin`);
       } else if (session?.user?.role === 'partner_admin') {
-        router.replace('/partner');
+        router.replace(`/${locale}/dashboard/partner`);
       } else {
-        router.replace('/');
+        router.replace(`/${locale}`);
       }
     }
-  }, [status, session, router]);
+  }, [status, session, router, locale]);
 
   if (status === 'loading') {
     return (

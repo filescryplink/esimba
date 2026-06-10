@@ -1,12 +1,14 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function DashboardHomePage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const params = useParams();
+  const locale = params.locale as string;
   const [hasRedirected, setHasRedirected] = useState(false);
 
   useEffect(() => {
@@ -15,17 +17,17 @@ export default function DashboardHomePage() {
     if (status === 'authenticated') {
       setHasRedirected(true);
       if (session?.user?.role === 'super_admin') {
-        router.replace('/admin');
+        router.replace(`/${locale}/dashboard/admin`);
       } else if (session?.user?.role === 'partner_admin') {
-        router.replace('/partner');
+        router.replace(`/${locale}/dashboard/partner`);
       } else {
-        router.replace('/');
+        router.replace(`/${locale}`);
       }
     } else if (status === 'unauthenticated') {
       setHasRedirected(true);
-      router.replace('/login');
+      router.replace(`/${locale}/dashboard/login`);
     }
-  }, [status, session, router]);
+  }, [status, session, router, locale]);
 
   return (
     <div className="min-h-screen flex items-center justify-center">

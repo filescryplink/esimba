@@ -1,7 +1,7 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import AdminLayout from '../components/AdminLayout';
 import OverviewTab from './components/OverviewTab';
@@ -14,6 +14,8 @@ import SettingsTab from './components/SettingsTab';
 const AdminPage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const params = useParams();
+  const locale = params.locale as string;
   const [activeTab, setActiveTab] = useState('overview');
   const [hasCheckedRole, setHasCheckedRole] = useState(false);
 
@@ -22,13 +24,13 @@ const AdminPage = () => {
     if (status === 'authenticated') {
       setHasCheckedRole(true);
       if (session?.user?.role !== 'super_admin') {
-        router.replace('/');
+        router.replace(`/${locale}`);
       }
     } else if (status === 'unauthenticated') {
       setHasCheckedRole(true);
-      router.replace('/login');
+      router.replace(`/${locale}/dashboard/login`);
     }
-  }, [status, session, router]);
+  }, [status, session, router, locale]);
 
   if (status === 'loading' || !hasCheckedRole) {
     return (
