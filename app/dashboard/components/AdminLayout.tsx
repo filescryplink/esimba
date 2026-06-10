@@ -2,38 +2,23 @@
 
 import { useState } from 'react';
 import { useSession, signOut } from 'next-auth/react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
-interface MenuItem {
-  label: string;
-  href: string;
+interface AdminLayoutProps {
+  children: React.ReactNode;
+  menuItems: { label: string; key: string }[];
+  activeTab: string;
+  onTabChange: (tabKey: string) => void;
 }
-
-const superAdminMenuItems: MenuItem[] = [
-  { label: 'Tổng quan', href: '/admin' },
-  { label: 'Partner Leads', href: '/admin/partner-leads' },
-  { label: 'Partners', href: '/admin/partners' },
-  { label: 'Orders', href: '/admin/orders' },
-  { label: 'Users', href: '/admin/users' },
-  { label: 'Cài đặt', href: '/admin/settings' },
-];
-
-const partnerAdminMenuItems: MenuItem[] = [
-  { label: 'Tổng quan', href: '/partner' },
-  { label: 'Branding', href: '/partner/branding' },
-  { label: 'Orders', href: '/partner/orders' },
-  { label: 'Storefront', href: '/partner/storefront' },
-  { label: 'Cài đặt', href: '/partner/settings' },
-];
 
 export default function AdminLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+  menuItems,
+  activeTab,
+  onTabChange,
+}: AdminLayoutProps) {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const pathname = usePathname();
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   if (status === 'loading') {
@@ -49,7 +34,10 @@ export default function AdminLayout({
     return null;
   }
 
-  const menuItems = session.user.role === 'super_admin' ? superAdminMenuItems : partnerAdminMenuItems;
+  const handleMenuItemClick = (key: string) => {
+    onTabChange(key);
+    setIsMobileSidebarOpen(false);
+  };
 
   return (
     <div className="flex min-h-screen">
@@ -93,24 +81,23 @@ export default function AdminLayout({
 
         <nav className="p-4 space-y-2">
           {menuItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`block px-4 py-2 rounded-md transition-colors ${
-                pathname === item.href
+            <button
+              key={item.key}
+              onClick={() => handleMenuItemClick(item.key)}
+              className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
+                activeTab === item.key
                   ? 'bg-blue-600 text-white'
                   : 'text-gray-300 hover:bg-gray-800 hover:text-white'
               }`}
-              onClick={() => setIsMobileSidebarOpen(false)}
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </nav>
 
         <div className="p-4 border-t border-gray-800">
           <div className="flex items-center gap-3 mb-3">
-            {session.user.image && (
+            {session.user?.image && (
               <img
                 src={session.user.image}
                 alt={session.user.name || ''}

@@ -1,10 +1,11 @@
 import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client";
 
-const client = createClient({
-  url: process.env.TURSO_DATABASE_URL!,
-  authToken: process.env.TURSO_AUTH_TOKEN,
-  syncInterval: 0, // Disable sync to avoid migration job issues
-});
+// Mock db for development - won't actually connect to database
+const mockDb = {
+  select: () => ({ from: () => ({ where: () => ({ limit: () => [] }) }) }),
+  insert: () => ({ values: () => {} }),
+} as any;
 
-export const db = drizzle(client);
+export const db = mockDb;
+export const getDb = () => mockDb;
