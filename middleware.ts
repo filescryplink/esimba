@@ -1,14 +1,21 @@
-import createMiddleware from 'next-intl/middleware';
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ['vi', 'en'],
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
-  // Used when no locale matches
-  defaultLocale: 'vi'
-});
+export function middleware(request: NextRequest) {
+  const host = request.headers.get('host')
+  
+  // Redirect all requests with /dashboard (any locale) from esimba.online to app.esimba.online
+  if (host !== 'app.esimba.online' && request.nextUrl.pathname.includes('/dashboard')) {
+    const url = request.nextUrl.clone()
+    url.hostname = 'app.esimba.online'
+    return NextResponse.redirect(url, 301) // 301 = permanent redirect
+  }
+  
+  return NextResponse.next()
+}
 
+// Configure which paths to run middleware on
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(vi|en)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)']
-};
+  matcher: ['/:locale/dashboard/:path*', '/dashboard/:path*'],
+}
