@@ -2,7 +2,6 @@
 'use client';
 
 import { NextIntlClientProvider } from 'next-intl';
-import { SessionProvider } from 'next-auth/react';
 
 export default function Providers({ 
   children, 
@@ -14,10 +13,8 @@ export default function Providers({
   messages: any;
 }) {
   return (
-    <SessionProvider>
-      <NextIntlClientProvider locale={locale} messages={messages}>
-        {children}
-      </NextIntlClientProvider>
-    </SessionProvider>
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      {children}
+    </NextIntlClientProvider>
   );
 }
