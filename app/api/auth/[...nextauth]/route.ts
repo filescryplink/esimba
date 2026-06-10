@@ -5,7 +5,7 @@ import { users } from "@/lib/schema";
 import { eq } from "drizzle-orm";
 
 const SUPER_ADMIN_EMAIL = "balv.airdrop@gmail.com";
-const PARTNER_ADMIN_EMAIL = "partner@example.com";
+const PARTNER_ADMIN_EMAIL = "vaytaichinh.top@gmail.com";
 
 const handler = NextAuth({
   providers: [
