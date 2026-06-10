@@ -75,10 +75,6 @@ export const Navbar = () => {
                 EN
               </button>
             </div>
-
-            <Button href="/esim" variant="primary">
-              {locale === 'vi' ? 'Mua ngay' : 'Buy now'}
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -136,9 +132,6 @@ export const Navbar = () => {
             </div>
             <div className="border-t border-gray-100 pt-4 flex flex-col gap-3">
               <Link href="https://app.esimba.online" className="w-full text-center px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-full transition-colors">{t('login')}</Link>
-              <Button href="/esim" variant="primary">
-                {locale === 'vi' ? 'Mua ngay' : 'Buy now'}
-              </Button>
             </div>
           </div>
         </div>
