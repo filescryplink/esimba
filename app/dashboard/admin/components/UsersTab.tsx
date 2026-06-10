@@ -6,7 +6,7 @@ interface User {
   id: string;
   email: string;
   name: string;
-  role: 'super_admin' | 'partner_admin' | 'pending';
+  role: 'super_admin' | 'partner_admin' | 'user';
   createdAt: string;
 }
 
@@ -14,7 +14,7 @@ export default function AdminUsersTab() {
   const [users, setUsers] = useState<User[]>([
     { id: '1', email: 'balv.airdrop@gmail.com', name: 'Admin', role: 'super_admin', createdAt: '01/01/2025' },
     { id: '2', email: 'partner1@example.com', name: 'Partner 1', role: 'partner_admin', createdAt: '02/06/2025' },
-    { id: '3', email: 'user3@example.com', name: 'User 3', role: 'pending', createdAt: '08/06/2025' },
+    { id: '3', email: 'user3@example.com', name: 'User 3', role: 'user', createdAt: '08/06/2025' },
   ]);
   const [showViewModal, setShowViewModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -25,7 +25,7 @@ export default function AdminUsersTab() {
     switch (role) {
       case 'super_admin': return 'bg-red-100 text-red-800';
       case 'partner_admin': return 'bg-blue-100 text-blue-800';
-      case 'pending': return 'bg-yellow-100 text-yellow-800';
+      case 'user': return 'bg-green-100 text-green-800';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
@@ -34,7 +34,7 @@ export default function AdminUsersTab() {
     switch (role) {
       case 'super_admin': return 'Super Admin';
       case 'partner_admin': return 'Partner Admin';
-      case 'pending': return 'Chờ duyệt';
+      case 'user': return 'User';
       default: return 'Không xác định';
     }
   };
@@ -96,8 +96,8 @@ export default function AdminUsersTab() {
                     <div className="flex gap-2">
                       <button onClick={() => handleView(user)} className="text-blue-600 hover:text-blue-800 font-medium">Xem</button>
                       <button onClick={() => handleEdit(user)} className="text-gray-600 hover:text-gray-800 font-medium">Sửa</button>
-                      {user.role === 'pending' && (
-                        <button onClick={() => handleActivatePartner(user)} className="text-green-600 hover:text-green-800 font-medium">Kích hoạt</button>
+                      {user.role === 'user' && (
+                        <button onClick={() => handleActivatePartner(user)} className="text-green-600 hover:text-green-800 font-medium">Kích hoạt Partner</button>
                       )}
                     </div>
                   </td>
@@ -163,7 +163,7 @@ export default function AdminUsersTab() {
                 >
                   <option value="super_admin">Super Admin</option>
                   <option value="partner_admin">Partner Admin</option>
-                  <option value="pending">Chờ duyệt</option>
+                  <option value="user">User</option>
                 </select>
               </div>
             </div>

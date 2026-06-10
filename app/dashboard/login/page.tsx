@@ -15,7 +15,7 @@ export default function LoginPage() {
       } else if (session.user?.role === 'partner_admin') {
         router.replace('/partner');
       } else {
-        router.replace('/waiting-approval');
+        window.location.href = '/';
       }
     }
   }, [status, session, router]);

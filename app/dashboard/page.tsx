@@ -15,7 +15,9 @@ export default function DashboardHomePage() {
       } else if (session?.user?.role === 'partner_admin') {
         router.replace('/partner');
       } else {
-        router.replace('/waiting-approval');
+        // Regular users can go to public site or wherever you want
+        // For now, let's redirect to public homepage
+        window.location.href = '/';
       }
     } else if (status === 'unauthenticated') {
       router.replace('/login');

@@ -33,7 +33,7 @@ const handler = NextAuth({
         } else if (user.email === PARTNER_ADMIN_EMAIL) {
           token.role = "partner_admin";
         } else {
-          token.role = "pending";
+          token.role = "user";
         }
       }
       return token;
@@ -42,7 +42,7 @@ const handler = NextAuth({
       if (session.user?.email) {
         session.user.id = "mock-id";
         session.user.partnerId = null;
-        session.user.role = (token.role as "super_admin" | "partner_admin" | "pending") || "pending";
+        session.user.role = (token.role as "super_admin" | "partner_admin" | "user") || "user";
       }
       
       return session;

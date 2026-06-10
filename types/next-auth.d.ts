@@ -8,7 +8,7 @@ declare module "next-auth" {
       email: string;
       name?: string | null;
       image?: string | null;
-      role: "super_admin" | "partner_admin" | "pending";
+      role: "super_admin" | "partner_admin" | "user";
       partnerId?: string | null;
     };
   }
@@ -18,13 +18,13 @@ declare module "next-auth" {
     email: string;
     name?: string | null;
     image?: string | null;
-    role: "super_admin" | "partner_admin" | "pending";
+    role: "super_admin" | "partner_admin" | "user";
     partnerId?: string | null;
   }
 }
 
 declare module "next-auth/jwt" {
   interface JWT {
-    role?: "super_admin" | "partner_admin" | "pending";
+    role?: "super_admin" | "partner_admin" | "user";
   }
 }
