@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations, useLocale } from 'next-intl';
 import { Button } from "./Button";
-import { Link } from 'next-intl/navigation';
+import { Link } from '@/lib/navigation';
 
 export const Navbar = () => {
   const t = useTranslations('common.nav');
