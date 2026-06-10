@@ -19,14 +19,13 @@ export default function DashboardHomePage() {
       } else if (session?.user?.role === 'partner_admin') {
         router.replace('/partner');
       } else {
-        // Regular users can go to public site or wherever you want
         window.location.href = '/';
       }
     } else if (status === 'unauthenticated') {
       setHasRedirected(true);
       router.replace('/login');
     }
-  }, [status, session, router, hasRedirected]);
+  }, [status, session, router]); // Remove hasRedirected from dependencies!
 
   return (
     <div className="min-h-screen flex items-center justify-center">

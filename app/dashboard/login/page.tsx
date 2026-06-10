@@ -22,7 +22,7 @@ export default function LoginPage() {
         window.location.href = '/';
       }
     }
-  }, [status, session, router, hasRedirected]);
+  }, [status, session, router]); // Remove hasRedirected!
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4">
