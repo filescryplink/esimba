@@ -1,7 +1,10 @@
+'use client';
+import { useTranslations } from 'next-intl';
 import { Button } from "../../components/Button";
 import { PlanCard } from "../../components/PlanCard";
 
 export default function Home() {
+  const t = useTranslations('HomePage');
   const plans = [
     { name: "Mỹ - 5GB", data: "5GB", duration: "30 Ngày", price: 120000 },
     { name: "Nhật Bản - 3GB", data: "3GB", duration: "14 Ngày", price: 210000, featured: true },
@@ -34,15 +37,14 @@ export default function Home() {
               Kết nối ở 185+ quốc gia
             </div>
             <h1 className="text-5xl lg:text-7xl font-black text-gray-900 mb-6 leading-tight">
-              eSIM <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">quốc tế</span>
-              <br />cho mọi hành trình
+              {t('heroTitle')}
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto">
-              Mua eSIM, kích hoạt tức thì, không cần SIM vật lý. Kết nối 5G/LTE ở hơn 185 quốc gia với giá tốt nhất thị trường.
+              {t('heroDescription')}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button variant="primary" size="lg" className="shadow-2xl">
-                <span className="mr-2">🚀</span> Mua ngay
+                <span className="mr-2">🚀</span> {t('ctaButton')}
               </Button>
               <Button variant="outline" size="lg">
                 Xem gói eSIM

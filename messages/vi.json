@@ -1,0 +1,33 @@
+{
+  "Navbar": {
+    "brand": "eSIMba",
+    "esimPlans": "Gói eSIM",
+    "support": "Hỗ trợ",
+    "about": "Về chúng tôi",
+    "login": "Đăng nhập"
+  },
+  "SupportMenu": {
+    "faq": "FAQ",
+    "howToUse": "Cách dùng",
+    "contact": "Liên hệ"
+  },
+  "AboutMenu": {
+    "intro": "Giới thiệu",
+    "privacy": "Chính sách bảo mật",
+    "terms": "Điều khoản sử dụng"
+  },
+  "Language": {
+    "vi": "Tiếng Việt",
+    "en": "English"
+  },
+  "HomePage": {
+    "heroTitle": "eSIM Quốc tế, kết nối mọi nơi",
+    "heroDescription": "Mua eSIM trực tuyến nhanh chóng, sử dụng ngay tại điểm đến. Không cần SIM vật lý, không cần chờ hàng.",
+    "ctaButton": "Xem gói eSIM"
+  },
+  "Footer": {
+    "copyright": "© 2025 eSIMba. Tất cả quyền được bảo lưu.",
+    "quickLinks": "Liên kết nhanh",
+    "support": "Hỗ trợ"
+  }
+}

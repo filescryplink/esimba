@@ -1,0 +1,33 @@
+{
+  "Navbar": {
+    "brand": "eSIMba",
+    "esimPlans": "eSIM Plans",
+    "support": "Support",
+    "about": "About Us",
+    "login": "Login"
+  },
+  "SupportMenu": {
+    "faq": "FAQ",
+    "howToUse": "How to Use",
+    "contact": "Contact Us"
+  },
+  "AboutMenu": {
+    "intro": "Introduction",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "Language": {
+    "vi": "Tiếng Việt",
+    "en": "English"
+  },
+  "HomePage": {
+    "heroTitle": "International eSIM, connect anywhere",
+    "heroDescription": "Buy eSIM online quickly, use immediately at your destination. No physical SIM needed, no waiting.",
+    "ctaButton": "View eSIM Plans"
+  },
+  "Footer": {
+    "copyright": "© 2025 eSIMba. All rights reserved.",
+    "quickLinks": "Quick Links",
+    "support": "Support"
+  }
+}
