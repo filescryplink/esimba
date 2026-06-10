@@ -13,7 +13,7 @@ interface User {
 export default function AdminUsersTab() {
   const [users, setUsers] = useState<User[]>([
     { id: '1', email: 'balv.airdrop@gmail.com', name: 'Admin', role: 'super_admin', createdAt: '01/01/2025' },
-    { id: '2', email: 'partner1@example.com', name: 'Partner 1', role: 'partner_admin', createdAt: '02/06/2025' },
+    { id: '2', email: 'vaytaichinh.top@gmail.com', name: 'Lee Finance', role: 'partner_admin', createdAt: '02/06/2025' },
     { id: '3', email: 'user3@example.com', name: 'User 3', role: 'user', createdAt: '08/06/2025' },
   ]);
   const [showViewModal, setShowViewModal] = useState(false);

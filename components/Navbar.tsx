@@ -5,6 +5,13 @@ import { Button } from "./Button";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState('vi');
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
+
+  const languages = [
+    { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
@@ -54,9 +61,38 @@ export const Navbar = () => {
               </div>
             </div>
             <a href="https://app.esimba.online" className="text-gray-700 hover:text-blue-600 font-semibold transition-colors">Đăng nhập</a>
-            <Button href="/esim" size="sm" variant="primary">
-              Mua ngay
-            </Button>
+            
+            {/* Language Selector */}
+            <div className="relative">
+              <button 
+                onClick={() => setLangMenuOpen(!langMenuOpen)}
+                className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
+              >
+                <span className="text-xl">{languages.find(l => l.code === selectedLang)?.flag}</span>
+                <span className="font-medium text-gray-700">{languages.find(l => l.code === selectedLang)?.name}</span>
+                <svg className={`w-4 h-4 text-gray-500 transition-transform ${langMenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {langMenuOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50">
+                  {languages.map(lang => (
+                    <button 
+                      key={lang.code}
+                      onClick={() => {
+                        setSelectedLang(lang.code);
+                        setLangMenuOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-3 px-4 py-2 text-left hover:bg-gray-50 transition-colors ${selectedLang === lang.code ? 'bg-blue-50 text-blue-600' : 'text-gray-700'}`}
+                    >
+                      <span className="text-xl">{lang.flag}</span>
+                      <span className="font-medium">{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -92,13 +128,25 @@ export const Navbar = () => {
               <p className="px-4 py-2 text-sm font-semibold text-gray-500 uppercase tracking-wider">Về chúng tôi</p>
               <a href="/about" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">Giới thiệu</a>
               <a href="/about/privacy" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">Chính sách bảo mật</a>
-              <a href="/about/terms" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">Điều khoản sử dụng</a>
+              <a href="/about/terms" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">Điều khoản</a>
             </div>
-            <div className="border-t border-gray-100 pt-4 flex flex-col gap-3">
+            <div className="border-t border-gray-100 pt-4">
+              <p className="px-4 py-2 text-sm font-semibold text-gray-500 uppercase tracking-wider">Ngôn ngữ</p>
+              <div className="flex gap-2 p-2">
+                {languages.map(lang => (
+                  <button 
+                    key={lang.code}
+                    onClick={() => setSelectedLang(lang.code)}
+                    className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 border rounded-xl transition-colors ${selectedLang === lang.code ? 'border-blue-600 bg-blue-50 text-blue-600' : 'border-gray-200 hover:bg-gray-50'}`}
+                  >
+                    <span>{lang.flag}</span>
+                    <span className="font-medium">{lang.name}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="border-t border-gray-100 pt-4">
               <a href="https://app.esimba.online" className="w-full text-center px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-full transition-colors">Đăng nhập</a>
-              <Button href="/esim" variant="primary" className="w-full">
-                Mua ngay
-              </Button>
             </div>
           </div>
         </div>
