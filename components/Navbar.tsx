@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations, useLocale } from 'next-intl';
-import Link from 'next-intl/link';
+import { Link } from 'next-intl/navigation';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
