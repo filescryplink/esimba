@@ -56,7 +56,20 @@
       "ctaSupport": "Contact support"
     },
     "footer": {
-      "copyright": "© 2026 eSIMba. All rights reserved."
+      "description": "Affordable international eSIM, instant activation, no physical SIM required.",
+      "products": "Products",
+      "esimPlans": "eSIM Plans",
+      "partner": "Partner",
+      "support": "Support",
+      "faq": "FAQ",
+      "howToUse": "How to use",
+      "contact": "Contact",
+      "aboutUs": "About us",
+      "about": "About",
+      "privacy": "Privacy policy",
+      "terms": "Terms of service",
+      "copyright": "© {year} eSIMba. All rights reserved.",
+      "tagline": "Connect to the world, as simple as a touch."
     },
     "about": {
       "title": "About us",

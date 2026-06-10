@@ -56,7 +56,20 @@
       "ctaSupport": "Liên hệ hỗ trợ"
     },
     "footer": {
-      "copyright": "© 2026 eSIMba. All rights reserved."
+      "description": "eSIM quốc tế giá tốt, kết nối tức thì, không cần SIM vật lý.",
+      "products": "Sản phẩm",
+      "esimPlans": "Gói eSIM",
+      "partner": "Đối tác",
+      "support": "Hỗ trợ",
+      "faq": "FAQ",
+      "howToUse": "Cách dùng",
+      "contact": "Liên hệ",
+      "aboutUs": "Về chúng tôi",
+      "about": "Giới thiệu",
+      "privacy": "Chính sách bảo mật",
+      "terms": "Điều khoản sử dụng",
+      "copyright": "© {year} eSIMba. Tất cả các quyền được bảo lưu.",
+      "tagline": "Kết nối thế giới, đơn giản như chạm ngón tay."
     },
     "about": {
       "title": "Về chúng tôi",
