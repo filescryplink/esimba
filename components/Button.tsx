@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from "react";
-import { Link } from 'next-intl';
+import Link from 'next-intl/link';
 
 interface ButtonProps {
   children: ReactNode;
