@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from "react";
-import { useTranslations, useLocale, Link } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import Link from 'next-intl/link';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -157,4 +158,4 @@ export const Navbar = () => {
       )}
     </nav>
   );
-};
+}
