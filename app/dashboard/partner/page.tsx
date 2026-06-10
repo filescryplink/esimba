@@ -25,10 +25,12 @@ export default function PartnerPage() {
   const [hasCheckedRole, setHasCheckedRole] = useState(false);
 
   useEffect(() => {
+    console.log('[PartnerPage]', { status, session, hasCheckedRole });
     if (hasCheckedRole) return;
     if (status === 'authenticated') {
       setHasCheckedRole(true);
       if (session?.user?.role !== 'partner_admin') {
+        console.log('[PartnerPage] Not partner, redirecting');
         router.replace('/');
       }
     } else if (status === 'unauthenticated') {
@@ -56,14 +58,25 @@ export default function PartnerPage() {
 
   if (status === 'loading' || !hasCheckedRole) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      <div className="min-h-screen flex flex-col items-center justify-center p-4">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+        <p className="text-gray-600">Đang kiểm tra quyền...</p>
+        <div className="mt-4 text-xs text-gray-400 max-w-md">
+          <pre>{JSON.stringify({ status, session, hasCheckedRole }, null, 2)}</pre>
+        </div>
       </div>
     );
   }
 
   if (!session || session.user?.role !== 'partner_admin') {
-    return null;
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center p-4">
+        <p className="text-red-600">Không có quyền truy cập</p>
+        <div className="mt-4 text-xs text-gray-400 max-w-md">
+          <pre>{JSON.stringify({ status, session }, null, 2)}</pre>
+        </div>
+      </div>
+    );
   }
 
   return (
