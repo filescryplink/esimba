@@ -2,14 +2,18 @@
 
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function LoginPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [hasRedirected, setHasRedirected] = useState(false);
 
   useEffect(() => {
+    if (hasRedirected) return;
+
     if (status === 'authenticated') {
+      setHasRedirected(true);
       if (session.user?.role === 'super_admin') {
         router.replace('/admin');
       } else if (session.user?.role === 'partner_admin') {
@@ -18,7 +22,7 @@ export default function LoginPage() {
         window.location.href = '/';
       }
     }
-  }, [status, session, router]);
+  }, [status, session, router, hasRedirected]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4">
