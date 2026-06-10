@@ -2,12 +2,25 @@
 
 import { useState } from 'react';
 
+interface Lead {
+  id: string;
+  fullName: string;
+  email: string;
+  companyName: string;
+  contact: string;
+  message: string;
+  status: 'new' | 'contacted' | 'approved' | 'rejected';
+  createdAt: string;
+}
+
 export default function AdminPartnerLeadsTab() {
-  const [leads, setLeads] = useState([
-    { id: '1', fullName: 'Nguyễn Văn A', email: 'a@example.com', companyName: 'Cty ABC', status: 'new', createdAt: '10/06/2025' },
-    { id: '2', fullName: 'Trần Thị B', email: 'b@example.com', companyName: 'Cty XYZ', status: 'contacted', createdAt: '09/06/2025' },
-    { id: '3', fullName: 'Lê Văn C', email: 'c@example.com', companyName: 'Cty 123', status: 'approved', createdAt: '08/06/2025' },
+  const [leads, setLeads] = useState<Lead[]>([
+    { id: '1', fullName: 'Nguyễn Văn A', email: 'a@example.com', companyName: 'Cty ABC', contact: '0123456789', message: 'Tôi muốn trở thành partner', status: 'new', createdAt: '10/06/2025' },
+    { id: '2', fullName: 'Trần Thị B', email: 'b@example.com', companyName: 'Cty XYZ', contact: '0987654321', message: 'Liên hệ tôi về hợp tác', status: 'contacted', createdAt: '09/06/2025' },
+    { id: '3', fullName: 'Lê Văn C', email: 'c@example.com', companyName: 'Cty 123', contact: '0112233445', message: 'Đăng ký partner', status: 'approved', createdAt: '08/06/2025' },
   ]);
+  const [showViewModal, setShowViewModal] = useState(false);
+  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -27,6 +40,15 @@ export default function AdminPartnerLeadsTab() {
       case 'rejected': return 'Từ chối';
       default: return 'Không xác định';
     }
+  };
+
+  const handleView = (lead: Lead) => {
+    setSelectedLead(lead);
+    setShowViewModal(true);
+  };
+
+  const handleUpdateStatus = (id: string, status: Lead['status']) => {
+    setLeads(leads.map(lead => lead.id === id ? { ...lead, status } : lead));
   };
 
   return (
@@ -67,8 +89,16 @@ export default function AdminPartnerLeadsTab() {
                   <td className="px-6 py-4">{lead.createdAt}</td>
                   <td className="px-6 py-4">
                     <div className="flex gap-2">
-                      <button className="text-blue-600 hover:text-blue-800">Xem</button>
-                      <button className="text-gray-600 hover:text-gray-800">Sửa</button>
+                      <button onClick={() => handleView(lead)} className="text-blue-600 hover:text-blue-800 font-medium">Xem</button>
+                      {lead.status === 'new' && (
+                        <button onClick={() => handleUpdateStatus(lead.id, 'contacted')} className="text-yellow-600 hover:text-yellow-800 font-medium">Liên hệ</button>
+                      )}
+                      {lead.status !== 'approved' && lead.status !== 'rejected' && (
+                        <button onClick={() => handleUpdateStatus(lead.id, 'approved')} className="text-green-600 hover:text-green-800 font-medium">Duyệt</button>
+                      )}
+                      {lead.status !== 'rejected' && (
+                        <button onClick={() => handleUpdateStatus(lead.id, 'rejected')} className="text-red-600 hover:text-red-800 font-medium">Từ chối</button>
+                      )}
                     </div>
                   </td>
                 </tr>
@@ -77,6 +107,54 @@ export default function AdminPartnerLeadsTab() {
           </table>
         </div>
       </div>
+
+      {/* View Modal */}
+      {showViewModal && selectedLead && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 w-full max-w-md">
+            <h2 className="text-xl font-bold text-gray-800 mb-4">Chi tiết Partner Lead</h2>
+            <div className="space-y-3">
+              <div>
+                <p className="text-sm text-gray-500">ID</p>
+                <p className="font-medium">#{selectedLead.id}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Họ tên</p>
+                <p className="font-medium">{selectedLead.fullName}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Email</p>
+                <p className="font-medium">{selectedLead.email}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Số điện thoại</p>
+                <p className="font-medium">{selectedLead.contact}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Công ty</p>
+                <p className="font-medium">{selectedLead.companyName}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Tin nhắn</p>
+                <p className="text-gray-800">{selectedLead.message}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Trạng thái</p>
+                <span className={`px-2 py-1 rounded-full text-xs ${getStatusColor(selectedLead.status)}`}>
+                  {getStatusLabel(selectedLead.status)}
+                </span>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Ngày tạo</p>
+                <p className="font-medium">{selectedLead.createdAt}</p>
+              </div>
+            </div>
+            <div className="mt-6 flex justify-end">
+              <button onClick={() => setShowViewModal(false)} className="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200">Đóng</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
