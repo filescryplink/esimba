@@ -10,7 +10,7 @@ export default function PartnerPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm">Đơn hàng của bạn</p>
-                <p className="text-3xl font-bold text-gray-800">45</p>
+                <p className="text-3xl font-bold text-gray-800">3</p>
               </div>
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                 <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -24,7 +24,7 @@ export default function PartnerPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm">Doanh thu</p>
-                <p className="text-3xl font-bold text-gray-800">$892</p>
+                <p className="text-3xl font-bold text-gray-800">$89</p>
               </div>
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                 <svg className="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +38,7 @@ export default function PartnerPage() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-500 text-sm">Khách hàng</p>
-                <p className="text-3xl font-bold text-gray-800">32</p>
+                <p className="text-3xl font-bold text-gray-800">3</p>
               </div>
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
                 <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -71,6 +71,15 @@ export default function PartnerPage() {
                     <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Thành công</span>
                   </td>
                   <td className="px-6 py-4">09/06/2025</td>
+                </tr>
+                <tr className="bg-white border-b hover:bg-gray-50">
+                  <td className="px-6 py-4">#123</td>
+                  <td className="px-6 py-4">sarah@example.com</td>
+                  <td className="px-6 py-4">Europe 3GB</td>
+                  <td className="px-6 py-4">
+                    <span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Đang xử lý</span>
+                  </td>
+                  <td className="px-6 py-4">08/06/2025</td>
                 </tr>
               </tbody>
             </table>
