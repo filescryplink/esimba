@@ -109,8 +109,8 @@ export const Navbar = () => {
             <div className="border-t border-gray-100 pt-3">
               <p className="px-4 py-2 text-sm font-semibold text-gray-500 uppercase tracking-wider">{t('about')}</p>
               <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">{t('about')}</Link>
-              <Link href="/about/privacy" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">Privacy</Link>
-              <Link href="/about/terms" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">Terms</Link>
+              <Link href="/about/privacy" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">{t('privacy')}</Link>
+              <Link href="/about/terms" className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-xl transition-colors">{t('terms')}</Link>
             </div>
             {/* Language Switcher Mobile */}
             <div className="border-t border-gray-100 pt-3">
