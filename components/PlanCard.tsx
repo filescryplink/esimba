@@ -18,7 +18,7 @@ export const PlanCard = ({
 
   return (
     <div className={`
-      rounded-3xl p-8 border-2 border-transparent bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 ${featured ? 'border-2 border-blue-300 shadow-2xl scale-105' : 'border-gray-200 shadow-lg hover:shadow-xl hover:border-blue-200 hover:scale-102 transition-all duration-300'}`}>
+      rounded-3xl p-8 bg-gradient-to-br from-blue-50 to-indigo-50 ${featured ? 'border-2 border-blue-300 shadow-2xl scale-105' : 'border-2 border-gray-200 shadow-lg hover:shadow-xl hover:border-blue-200 hover:scale-102 transition-all duration-300'}`}>
       <div className="bg-white rounded-2xl p-6">
         {featured && (
           <div className="inline-block px-4 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold uppercase tracking-wider rounded-full mb-4">
