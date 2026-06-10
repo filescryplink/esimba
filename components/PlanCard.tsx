@@ -1,6 +1,7 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
+import { Button } from './Button';
 
 interface PlanCardProps {
   name: string;
@@ -14,13 +15,6 @@ export const PlanCard = ({
   name, data, duration, price, featured = false
 }: PlanCardProps) => {
   const t = useTranslations('common.planCard');
-  const locale = useLocale();
-
-  const switchLocale = (newLocale: string) => {
-    const path = window.location.pathname;
-    const newPath = path.replace(`/${locale}`, `/${newLocale}`);
-    window.location.href = newPath;
-  };
 
   return (
     <div className={`
@@ -70,20 +64,9 @@ export const PlanCard = ({
             {t('benefit3')}
           </li>
         </ul>
-        <div className="flex items-center gap-2 border border-gray-200 rounded-full p-1 w-full">
-          <button
-            onClick={() => switchLocale('vi')}
-            className={`flex-1 px-4 py-4 rounded-full text-sm font-semibold transition-all ${locale === 'vi' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
-          >
-            VI
-          </button>
-          <button
-            onClick={() => switchLocale('en')}
-            className={`flex-1 px-4 py-4 rounded-full text-sm font-semibold transition-all ${locale === 'en' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
-          >
-            EN
-          </button>
-        </div>
+        <Button variant={featured ? "primary" : "outline"} size="lg" className="w-full">
+          {t('cta')}
+        </Button>
       </div>
     </div>
   );
