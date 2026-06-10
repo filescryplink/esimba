@@ -19,7 +19,7 @@ export default function DashboardHomePage() {
       } else if (session?.user?.role === 'partner_admin') {
         router.replace('/partner');
       } else {
-        window.location.href = '/';
+        router.replace('/');
       }
     } else if (status === 'unauthenticated') {
       setHasRedirected(true);

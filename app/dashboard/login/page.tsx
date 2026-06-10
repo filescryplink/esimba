@@ -19,7 +19,7 @@ export default function LoginPage() {
       } else if (session.user?.role === 'partner_admin') {
         router.replace('/partner');
       } else {
-        window.location.href = '/';
+        router.replace('/');
       }
     }
   }, [status, session, router]); // Remove hasRedirected!
