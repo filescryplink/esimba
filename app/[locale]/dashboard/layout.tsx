@@ -2,6 +2,7 @@ import { getMessages } from 'next-intl/server';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Providers from "./providers";
+import "../../globals.css"; // Add global styles
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,10 +22,12 @@ export default async function DashboardLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <div className={inter.className}>
-      <Providers locale={locale} messages={messages}>
-        {children}
-      </Providers>
-    </div>
+    <html lang={locale}>
+      <body className={inter.className}>
+        <Providers locale={locale} messages={messages}>
+          {children}
+        </Providers>
+      </body>
+    </html>
   );
 }
