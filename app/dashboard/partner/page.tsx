@@ -2,20 +2,20 @@
 
 import AdminLayout from '../../../components/AdminLayout';
 
-export default function AdminPage() {
+export default function PartnerPage() {
   return (
     <AdminLayout>
       <div>
         <h1 className="text-3xl font-black text-gray-900 mb-8">Tổng quan</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-xl">
                 📦
               </div>
             </div>
-            <p className="text-gray-500 text-sm mb-1">Tổng đơn hàng</p>
-            <p className="text-3xl font-bold text-gray-900">1,234</p>
+            <p className="text-gray-500 text-sm mb-1">Đơn hàng</p>
+            <p className="text-3xl font-bold text-gray-900">156</p>
           </div>
 
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
@@ -24,18 +24,8 @@ export default function AdminPage() {
                 👥
               </div>
             </div>
-            <p className="text-gray-500 text-sm mb-1">Người dùng</p>
-            <p className="text-3xl font-bold text-gray-900">567</p>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center text-yellow-600 text-xl">
-                🤝
-              </div>
-            </div>
-            <p className="text-gray-500 text-sm mb-1">Partners</p>
-            <p className="text-3xl font-bold text-gray-900">89</p>
+            <p className="text-gray-500 text-sm mb-1">Khách hàng</p>
+            <p className="text-3xl font-bold text-gray-900">345</p>
           </div>
 
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
@@ -45,7 +35,7 @@ export default function AdminPage() {
               </div>
             </div>
             <p className="text-gray-500 text-sm mb-1">Doanh thu</p>
-            <p className="text-3xl font-bold text-gray-900">₫45M</p>
+            <p className="text-3xl font-bold text-gray-900">₫5.2M</p>
           </div>
         </div>
 
@@ -63,17 +53,17 @@ export default function AdminPage() {
                 </tr>
               </thead>
               <tbody className="text-sm text-gray-600">
-                {[1,2,3,4,5].map((i) => (
+                {[1,2,3,4].map((i) => (
                   <tr key={i} className="border-b border-gray-50">
-                    <td className="py-4 font-medium">ES{10000 + i}</td>
+                    <td className="py-4 font-medium">ES{20000 + i}</td>
                     <td className="py-4">customer{i}@email.com</td>
-                    <td className="py-4">Mỹ - 5GB</td>
+                    <td className="py-4">Nhật Bản - 3GB</td>
                     <td className="py-4">
                       <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                         Hoàn thành
                       </span>
                     </td>
-                    <td className="py-4">10/06/2026</td>
+                    <td className="py-4">09/06/2026</td>
                   </tr>
                 ))}
               </tbody>
