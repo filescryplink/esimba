@@ -26,11 +26,11 @@ const handler = NextAuth({
       return true;
     },
     async jwt({ token, user }) {
-      // Persist role to token
-      if (user?.email) {
-        if (user.email === SUPER_ADMIN_EMAIL) {
+      // Check email every time, not just when user is present
+      if (token.email) {
+        if (token.email === SUPER_ADMIN_EMAIL) {
           token.role = "super_admin";
-        } else if (user.email === PARTNER_ADMIN_EMAIL) {
+        } else if (token.email === PARTNER_ADMIN_EMAIL) {
           token.role = "partner_admin";
         } else {
           token.role = "user";
