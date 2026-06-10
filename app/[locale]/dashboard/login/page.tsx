@@ -1,8 +1,33 @@
 'use client';
 
-import { signIn } from 'next-auth/react';
+import { useSession, signIn } from 'next-auth/react';
+import { useRouter, useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function LoginPage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const params = useParams();
+  const locale = params.locale as string;
+  const [hasRedirected, setHasRedirected] = useState(false);
+
+  useEffect(() => {
+    if (hasRedirected) return;
+
+    if (status === 'authenticated') {
+      setHasRedirected(true);
+      router.replace(`/${locale}/dashboard`);
+    }
+  }, [status, router, locale]);
+
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-3xl shadow-2xl">
