@@ -1,4 +1,6 @@
-import { Button } from "./Button";
+'use client';
+
+import { useTranslations, useLocale } from 'next-intl';
 
 interface PlanCardProps {
   name: string;
@@ -9,14 +11,24 @@ interface PlanCardProps {
 };
 
 export const PlanCard = ({
-  name, data, duration, price, featured = false }: PlanCardProps) => {
+  name, data, duration, price, featured = false
+}: PlanCardProps) => {
+  const t = useTranslations('common.planCard');
+  const locale = useLocale();
+
+  const switchLocale = (newLocale: string) => {
+    const path = window.location.pathname;
+    const newPath = path.replace(`/${locale}`, `/${newLocale}`);
+    window.location.href = newPath;
+  };
+
   return (
     <div className={`
       rounded-3xl p-8 border-2 border-transparent bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 ${featured ? 'border-2 border-blue-300 shadow-2xl scale-105' : 'border-gray-200 shadow-lg hover:shadow-xl hover:border-blue-200 hover:scale-102 transition-all duration-300'}`}>
       <div className="bg-white rounded-2xl p-6">
         {featured && (
           <div className="inline-block px-4 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold uppercase tracking-wider rounded-full mb-4">
-            Phổ biến nhất
+            {t('featured')}
           </div>
         )}
         <h3 className="text-xl font-bold text-gray-900 mb-2">{name}</h3>
@@ -43,24 +55,35 @@ export const PlanCard = ({
             <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            Kết nối 5G/LTE tốc độ cao
+            {t('benefit1')}
           </li>
           <li className="flex items-center gap-2 text-gray-600">
             <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            Kích hoạt tức thì
+            {t('benefit2')}
           </li>
           <li className="flex items-center gap-2 text-gray-600">
             <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            Không cần SIM vật lý
+            {t('benefit3')}
           </li>
         </ul>
-        <Button variant={featured ? "primary" : "outline"} size="lg" className="w-full">
-            Mua ngay
-          </Button>
+        <div className="flex items-center gap-2 border border-gray-200 rounded-full p-1 w-full">
+          <button
+            onClick={() => switchLocale('vi')}
+            className={`flex-1 px-4 py-4 rounded-full text-sm font-semibold transition-all ${locale === 'vi' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
+          >
+            VI
+          </button>
+          <button
+            onClick={() => switchLocale('en')}
+            className={`flex-1 px-4 py-4 rounded-full text-sm font-semibold transition-all ${locale === 'en' ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
+          >
+            EN
+          </button>
+        </div>
       </div>
     </div>
   );

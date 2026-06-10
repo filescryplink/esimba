@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode } from "react";
+import { Link } from 'next-intl';
 
 interface ButtonProps {
   children: ReactNode;
@@ -37,9 +38,9 @@ export const Button = ({
 
   if (href) {
     return (
-      <a href={href} className={classes} onClick={onClick}>
+      <Link href={href} className={classes} onClick={onClick}>
         {children}
-      </a>
+      </Link>
     );
   }
 

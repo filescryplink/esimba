@@ -1,0 +1,87 @@
+{
+  "common": {
+    "nav": {
+      "home": "Trang chủ",
+      "esim": "eSIM",
+      "about": "Về chúng tôi",
+      "support": "Hỗ trợ",
+      "faq": "Câu hỏi thường gặp",
+      "howToUse": "Cách sử dụng",
+      "contact": "Liên hệ",
+      "login": "Đăng nhập"
+    },
+    "hero": {
+      "badge": "Kết nối ở 185+ quốc gia",
+      "title": "eSIM Quốc tế, kết nối mọi nơi",
+      "description": "Mua eSIM trực tuyến nhanh chóng, sử dụng ngay tại điểm đến. Không cần SIM vật lý, không cần chờ hàng.",
+      "ctaViewPlans": "Xem gói eSIM",
+      "ctaAbout": "Về chúng tôi"
+    },
+    "benefits": {
+      "title": "Tại sao chọn eSIMba?",
+      "subtitle": "Những lợi ích vượt trội chỉ có ở eSIMba",
+      "items": [
+        { "title": "Kích hoạt tức thì", "desc": "Nhận QR và kích hoạt ngay sau khi thanh toán" },
+        { "title": "185+ quốc gia", "desc": "Kết nối ở hầu hết các quốc gia trên thế giới" },
+        { "title": "5G/LTE tốc độ cao", "desc": "Tốc độ mạng nhanh và ổn định" },
+        { "title": "Giá tốt nhất thị trường", "desc": "Giá rẻ hơn nhiều so với roaming thông thường" }
+      ]
+    },
+    "howItWorks": {
+      "title": "Cách hoạt động",
+      "subtitle": "Chỉ 4 bước đơn giản để có eSIM",
+      "steps": [
+        { "title": "Chọn gói eSIM", "desc": "Chọn quốc gia/ khu vực và gói dữ liệu phù hợp" },
+        { "title": "Thanh toán", "desc": "Thanh toán an toàn với nhiều phương thức" },
+        { "title": "Nhận QR", "desc": "Nhận QR code và mã kích hoạt" },
+        { "title": "Sử dụng", "desc": "Quét QR và kết nối internet ngay lập tức" }
+      ]
+    },
+    "plans": {
+      "title": "Gói eSIM phổ biến",
+      "subtitle": "Chọn gói phù hợp với hành trình của bạn",
+      "ctaAllPlans": "Xem tất cả gói eSIM →"
+    },
+    "planCard": {
+      "featured": "Phổ biến nhất",
+      "benefit1": "Kết nối 5G/LTE tốc độ cao",
+      "benefit2": "Kích hoạt tức thì",
+      "benefit3": "Không cần SIM vật lý",
+      "cta": "Mua ngay"
+    },
+    "cta": {
+      "title": "Sẵn sàng cho hành trình tiếp theo?",
+      "subtitle": "Mua eSIM ngay hôm nay và nhận ưu đãi đặc biệt 10% cho đơn hàng đầu tiên",
+      "ctaBuy": "Mua ngay",
+      "ctaSupport": "Liên hệ hỗ trợ"
+    },
+    "footer": {
+      "copyright": "© 2026 eSIMba. All rights reserved."
+    },
+    "about": {
+      "title": "Về chúng tôi",
+      "description": "eSIMba là nền tảng cung cấp eSIM quốc tế uy tín, giúp bạn kết nối internet ở hơn 185 quốc gia một cách nhanh chóng và tiện lợi."
+    },
+    "privacy": {
+      "title": "Chính sách bảo mật"
+    },
+    "terms": {
+      "title": "Điều khoản sử dụng"
+    },
+    "support": {
+      "faqTitle": "Câu hỏi thường gặp",
+      "howToUseTitle": "Cách sử dụng",
+      "contactTitle": "Liên hệ"
+    },
+    "dashboard": {
+      "login": "Đăng nhập",
+      "admin": "Quản trị viên",
+      "partner": "Đối tác",
+      "users": "Người dùng",
+      "partners": "Đối tác",
+      "orders": "Đơn hàng",
+      "settings": "Cài đặt",
+      "overview": "Tổng quan"
+    }
+  }
+}

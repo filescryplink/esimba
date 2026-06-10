@@ -1,26 +1,14 @@
-import { NextRequest, NextResponse } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
 
-export function middleware(request: NextRequest) {
-  const host = request.headers.get('host') || '';
-  const url = request.nextUrl.clone();
-  
-  if (host === 'app.esimba.online' || host.startsWith('app.esimba')) {
-    if (!url.pathname.startsWith('/dashboard')) {
-      url.pathname = `/dashboard${url.pathname}`;
-      return NextResponse.rewrite(url);
-    }
-  } else {
-    if (!url.pathname.startsWith('/public') && !url.pathname.startsWith('/api') && !url.pathname.startsWith('/_next')) {
-      url.pathname = `/public${url.pathname}`;
-      return NextResponse.rewrite(url);
-    }
-  }
-  
-  return NextResponse.next();
-}
+export default createMiddleware({
+  // A list of all locales that are supported
+  locales: ['vi', 'en'],
+
+  // Used when no locale matches
+  defaultLocale: 'vi'
+});
 
 export const config = {
-  matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-  ],
+  // Match only internationalized pathnames
+  matcher: ['/', '/(vi|en)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)']
 };

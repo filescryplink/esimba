@@ -1,0 +1,87 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "esim": "eSIM",
+      "about": "About",
+      "support": "Support",
+      "faq": "FAQ",
+      "howToUse": "How to use",
+      "contact": "Contact",
+      "login": "Login"
+    },
+    "hero": {
+      "badge": "Connect in 185+ countries",
+      "title": "International eSIM, connect anywhere",
+      "description": "Buy eSIM online quickly, use immediately at your destination. No physical SIM, no waiting.",
+      "ctaViewPlans": "View eSIM plans",
+      "ctaAbout": "About us"
+    },
+    "benefits": {
+      "title": "Why choose eSIMba?",
+      "subtitle": "Outstanding benefits only at eSIMba",
+      "items": [
+        { "title": "Instant activation", "desc": "Get QR and activate right after payment" },
+        { "title": "185+ countries", "desc": "Connect in most countries worldwide" },
+        { "title": "High-speed 5G/LTE", "desc": "Fast and stable network speed" },
+        { "title": "Best market price", "desc": "Cheaper than traditional roaming" }
+      ]
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "subtitle": "Just 4 simple steps to get eSIM",
+      "steps": [
+        { "title": "Choose eSIM plan", "desc": "Select country/region and suitable data plan" },
+        { "title": "Pay", "desc": "Secure payment with multiple methods" },
+        { "title": "Get QR", "desc": "Receive QR code and activation code" },
+        { "title": "Use", "desc": "Scan QR and connect to the internet instantly" }
+      ]
+    },
+    "plans": {
+      "title": "Popular eSIM plans",
+      "subtitle": "Choose a plan that fits your journey",
+      "ctaAllPlans": "View all eSIM plans →"
+    },
+    "planCard": {
+      "featured": "Most popular",
+      "benefit1": "High-speed 5G/LTE connection",
+      "benefit2": "Instant activation",
+      "benefit3": "No physical SIM required",
+      "cta": "Buy now"
+    },
+    "cta": {
+      "title": "Ready for your next trip?",
+      "subtitle": "Buy eSIM today and get a special 10% discount for your first order",
+      "ctaBuy": "Buy now",
+      "ctaSupport": "Contact support"
+    },
+    "footer": {
+      "copyright": "© 2026 eSIMba. All rights reserved."
+    },
+    "about": {
+      "title": "About us",
+      "description": "eSIMba is a trusted international eSIM provider, helping you connect to the internet in over 185 countries quickly and conveniently."
+    },
+    "privacy": {
+      "title": "Privacy policy"
+    },
+    "terms": {
+      "title": "Terms of service"
+    },
+    "support": {
+      "faqTitle": "Frequently asked questions",
+      "howToUseTitle": "How to use",
+      "contactTitle": "Contact"
+    },
+    "dashboard": {
+      "login": "Login",
+      "admin": "Admin",
+      "partner": "Partner",
+      "users": "Users",
+      "partners": "Partners",
+      "orders": "Orders",
+      "settings": "Settings",
+      "overview": "Overview"
+    }
+  }
+}
