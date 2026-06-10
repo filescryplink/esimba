@@ -12,6 +12,7 @@ const handler = NextAuth({
     }),
   ],
   secret: process.env.AUTH_SECRET,
+  trustHost: true,
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       // Check if user exists in DB
